@@ -34,5 +34,5 @@ public final class Client {
     
     @ElementCollection
     @CollectionTable(name = "client_cart", joinColumns = @jakarta.persistence.JoinColumn(name = "client_id"))
-    private List<Product> cart;
+    private List<Long> cart;
 }
