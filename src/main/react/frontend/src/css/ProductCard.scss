@@ -1,0 +1,110 @@
+@use 'Colors';
+
+.product-card {
+    position: relative;
+    border-radius: 3vh;
+    border: 0.3vh solid transparent;
+    background: 
+        linear-gradient(Colors.$darker-bg-color, Colors.$darker-bg-color) padding-box,
+        linear-gradient(Colors.$dark-green, Colors.$mid-green, Colors.$light-green) border-box;
+    overflow: hidden;
+    background-color: Colors.$darker-bg-color;
+    transition: transform 0.2s;
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+
+    :hover {
+        transform: translateY(-2%);
+
+        .product-overlay {
+            opacity: 1;
+        }
+    }
+}
+
+.product-img {
+    position: relative;
+    width: 100%;
+
+    img {
+        border-radius: 3vh;
+        display: block;
+        mix-blend-mode: multiply;
+        padding: 2vh 1vw 0 1vw;
+        width: 100%;
+        height: 14.5rem;
+        object-fit: cover;
+    }
+}
+
+.product-overlay {
+    position: absolute;
+    margin: 0;
+    background-image: linear-gradient(to bottom,rgba(0, 0, 0, 0.1),rgba(0, 0, 0, 0.8));
+    opacity: 0;
+    transition: opacity 0.2s;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    padding: 1vw;
+}
+
+.carted-btn {
+    position: absolute;
+    top: 2vh;
+    right: 1vw;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+
+    :hover {
+        background-color: rgba(0, 0, 0, 0.8);
+    }
+
+    :active {
+        color: #ff4757;
+    }
+}
+
+
+.product-info {
+    padding: 1rem;
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    gap: 0.5rem;
+
+    h3 {
+        font-size: 1rem;
+        margin: 0;
+    }
+
+    p {
+        display: flex;
+        align-items: center;
+        gap: 1vw;
+        color: #999;
+        font-size: 0.9rem;
+    }
+}
+
+// @media (max-width: 768px) {
+//     .product-card {
+//         font-size: 0.9rem;
+//     }
+
+//     .product-info {
+//         padding: 0.75rem;
+//     }
+
+//     .carted-btn {
+//         width: 32px;
+//         height: 32px;
+//         font-size: 1.2rem;
+//     }
+// }
+
+

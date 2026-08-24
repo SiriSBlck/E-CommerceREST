@@ -1,0 +1,19 @@
+.navbar {
+  display: flex;
+  height: 7vh;
+  width: 100%;
+  flex-flow: row nowrap;
+  align-items: center;
+  box-shadow: 0px 4px 5px #386641;
+}
+
+.navbar-links {
+  height: 100%;
+  width: 100%;
+  padding: 1.5vh 2vw;
+  background-color: #6A994E;
+  display: flex;
+  flex-flow: row nowrap;
+  justify-content: space-between;
+  align-items: center;
+}/*# sourceMappingURL=NavBar.css.map */

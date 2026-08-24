@@ -1,0 +1,56 @@
+@use 'Colors';
+
+.home {
+  width: 100%;
+}
+
+.search-form {
+  max-width: 50vw;
+  margin: 0 20vw 2vh auto;
+  display: flex;
+  gap: 1vw;
+  padding: 0 2vw;
+}
+
+.search-input {
+  flex: 1;
+  padding: 1vw 2vh;
+  border: 0.5vh solid;
+  border-radius: 8px;
+  box-shadow: 3px 4px 5px Colors.$dark-green;
+  background-color: Colors.$bg-color;
+  color: Colors.$mid-green;
+  
+  :focus {
+    outline: none;
+    box-shadow: 0 0 0 2vh Colors.$dark-green;
+  }
+}
+
+.search-button {
+  padding: 0.75rem 1.5rem;
+  background-color: Colors.$contrast;
+  color: white;
+  border-radius: 4px;
+  font-weight: 500;
+  transition: background-color 0.2s;
+  white-space: nowrap;
+}
+
+// @media (max-width: 639px) {
+//   .home {
+//     padding: 1rem 0;
+//   }
+
+//   .search-form {
+//     margin-bottom: 1rem;
+//   }
+// }
+
+.products-grid {
+  display: grid;
+  justify-content: space-between;
+  grid-template-columns: repeat(auto-fit, 14rem);
+  gap: 3vh 0.75vw;
+  width: 100%;
+}
