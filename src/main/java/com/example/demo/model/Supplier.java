@@ -34,5 +34,5 @@ public final class Supplier {
 
     @ElementCollection
     @CollectionTable(name = "supplier_catalog", joinColumns = @jakarta.persistence.JoinColumn(name = "supplier_id"))
-    private List<Product> catalog;
+    private List<Long> catalog;
 }

@@ -1,10 +1,7 @@
 package com.example.demo.controller;
 
-import com.example.demo.repository.ReviewRepository;
-
 import java.net.http.HttpRequest;
 
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.data.web.PageableDefault;
@@ -22,6 +19,7 @@ import lombok.AllArgsConstructor;
 
 import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 
 @AllArgsConstructor
@@ -47,15 +45,15 @@ public final class ProductController {
         return ResponseEntity.ok(this.productService.getReviews(productId, pageable));
     }
 
-    @GetMapping("/product/{product-id}/review")
+    @PutMapping("/product/{product-id}/review")
     public ResponseEntity<HttpRequest> addProductReview(@RequestParam Review review, @PageableDefault(size = 20, sort = "createdAt") Pageable pageable) { 
         return (this.reviewService.addReview(review, pageable) ? new ResponseEntity<>(HttpStatusCode.valueOf(200)) : 
                                                 new ResponseEntity<>(HttpStatusCode.valueOf(412)));
     }
     
     @DeleteMapping("/product/{product-id}/review")
-    public ResponseEntity<HttpRequest> deleteProductReview(@RequestParam Long productId) {
-        this.reviewService.deleteReview(productId);
+    public ResponseEntity<HttpRequest> deleteProductReview(@RequestParam Long reviewId) {
+        this.reviewService.deleteReview(reviewId);
         return new ResponseEntity<>(HttpStatusCode.valueOf(200));
     }
 }

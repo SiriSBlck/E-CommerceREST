@@ -13,13 +13,15 @@ import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
+import com.example.demo.model.Client;
 import com.example.demo.model.Product;
 import com.example.demo.service.ClientService;
 import org.springframework.web.bind.annotation.RequestParam;
 
 
+
 @Controller
-@RequestMapping("/client")
+@RequestMapping
 public final class ClientController {
 
     private ClientService clientService;
@@ -29,9 +31,14 @@ public final class ClientController {
         this.clientService = clientService;
     }
 
-    @GetMapping(value="{client-id}")
-    public String requestMethodName(@RequestParam String param) {
-        return new String();
+    @GetMapping(value="/client/{client-id}")
+    public ResponseEntity<Client> requestMethodName(@RequestParam Long clientId) {
+        return ResponseEntity.ok(this.clientService.getClient(clientId));
+    }
+
+    @PutMapping(value="/client/{client-id}")
+    public ResponseEntity<Client> putClient(@RequestParam Client client) {        
+        return ResponseEntity.ok(this.clientService.editClient(client));
     }
     
     @GetMapping(value="/client/cart")

@@ -1,15 +1,10 @@
 package com.example.demo.model;
 
-import java.util.List;
-
-import jakarta.persistence.CollectionTable;
 import jakarta.persistence.Column;
-import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-import jakarta.persistence.OneToMany;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
@@ -37,7 +32,4 @@ public final class Product {
     private int totalScore;
 
     private int numberOfReviews;
-
-    // @OneToMany(mappedBy = "product")
-    // private List<Review> reviews;
 }

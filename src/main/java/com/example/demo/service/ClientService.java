@@ -1,5 +1,7 @@
 package com.example.demo.service;
 
+import java.util.Objects;
+
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
 import org.springframework.stereotype.Service;
@@ -21,6 +23,18 @@ public final class ClientService {
         this.clientRepository.save(client);
     }
 
+    public Client getClient(Long clientId) {
+        return this.clientRepository.findById(clientId).orElseThrow(() -> new IllegalArgumentException("Client not found"));
+    }
+
+    public Client editClient(Client client) {
+        Client c = this.clientRepository.save(client);
+        if(Objects.isNull(c)) {
+            throw new IllegalArgumentException("Client not found");
+        }
+        return c;
+    }
+
     public Page<Product> getCartProducts(Long clientId, Pageable pageable) {
         Client client = this.clientRepository.findById(clientId).orElseThrow(() -> new RuntimeException("Client not found"));
         return this.productRepository.findAllById(client.getCart(), pageable);
@@ -28,18 +42,14 @@ public final class ClientService {
 
     public boolean saveProductToCart(Long clientId, Long productId) {
         Client client = this.clientRepository.findById(clientId).orElseThrow(() -> new RuntimeException("Client not found"));
-        if(!this.productRepository.findById(productId).isPresent()) {
-            throw new IllegalArgumentException("Product not found");
-        }
+        this.productRepository.findById(productId).orElseThrow(() -> new RuntimeException("Product not found"));
         client.getCart().add(productId);
         return (this.clientRepository.save(client) != null);
     }
 
     public boolean removeProductFromCart(Long clientId, Long productId) {
         Client client = this.clientRepository.findById(clientId).orElseThrow(() -> new RuntimeException("Client not found"));
-        if(!this.productRepository.findById(productId).isPresent()) {
-            throw new IllegalArgumentException("Product not found");
-        }
+        this.productRepository.findById(productId).orElseThrow(() -> new RuntimeException("Product not found"));
         client.getCart().remove(productId);
         return (this.clientRepository.save(client) != null);
     }

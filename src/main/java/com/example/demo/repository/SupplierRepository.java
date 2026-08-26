@@ -1,8 +1,11 @@
 package com.example.demo.repository;
 
-import org.springframework.stereotype.Repository;
+import java.util.Optional;
 
-@Repository
-public class SupplierRepository {
+import org.springframework.data.jpa.repository.JpaRepository;
 
+import com.example.demo.model.Supplier;
+
+public interface SupplierRepository extends JpaRepository<Supplier, Long>{
+    Optional<Supplier> findById(Long supplierId);
 }
