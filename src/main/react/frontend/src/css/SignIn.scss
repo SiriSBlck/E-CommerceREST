@@ -1,0 +1,6 @@
+@use 'Form';
+
+.wrapper {
+    @include Form.wrapper;
+    padding: 3vh 2vw;
+}

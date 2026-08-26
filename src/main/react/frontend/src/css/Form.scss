@@ -1,0 +1,41 @@
+@use 'Colors';
+@use 'Border';
+
+@mixin wrapper() {
+    display: flex;
+    flex-direction: column;
+    @include Border.border(Colors.$darker-bg-color);
+    align-self: center;
+    justify-self: center;
+    box-shadow: 4px 4px 5px Colors.$dark-green;
+
+    form {
+        margin: 2vh 0;
+        display: flex;
+        flex-direction: column;
+        gap: 1.5vh;
+
+        .elem {
+            p {
+                margin-left: 0.5vw;
+            }
+
+            input {
+                margin-top: 0.5vh;
+                padding: 1vh 1vw;
+                @include Border.border(Colors.$darker-bg-color);
+
+                &::placeholder {
+                    color: Colors.$dark-green;
+                    opacity: 0.75;
+                }
+            }
+        }
+        
+        button {
+            @include Border.border(Colors.$mid-green);
+            margin-top: 1vh;
+            color: Colors.$bg-color;
+        }
+    }
+}

@@ -1,0 +1,9 @@
+@use 'Colors';
+
+@mixin border($inner-color) {
+    border-radius: 3vh;
+    border: 0.3vh solid transparent;
+    background: 
+        linear-gradient($inner-color, $inner-color) padding-box,
+        linear-gradient(Colors.$dark-green, Colors.$mid-green, Colors.$light-green) border-box;
+}

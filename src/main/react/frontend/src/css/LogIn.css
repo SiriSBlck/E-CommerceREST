@@ -1,0 +1,52 @@
+.login {
+  display: flex;
+  flex-direction: column;
+  border-radius: 3vh;
+  border: 0.3vh solid transparent;
+  background: linear-gradient(#F2E8CF, #F2E8CF) padding-box, linear-gradient(#386641, #6A994E, #A7C957) border-box;
+  align-self: center;
+  justify-self: center;
+  padding: 3vh 1.5vw;
+}
+
+.login-form {
+  margin: 2vh 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+}
+.login-form input {
+  padding: 1vh 1vw;
+  border-radius: 3vh;
+  border: 0.3vh solid transparent;
+  background: linear-gradient(#F2E8CF, #F2E8CF) padding-box, linear-gradient(#386641, #6A994E, #A7C957) border-box;
+}
+.login-form input::-moz-placeholder {
+  color: #386641;
+  opacity: 0.75;
+}
+.login-form input::placeholder {
+  color: #386641;
+  opacity: 0.75;
+}
+
+.login-button {
+  color: #FAF5EB;
+  margin-top: 1vh;
+  border-radius: 3vh;
+  border: 0.3vh solid transparent;
+  background: linear-gradient(#6A994E, #6A994E) padding-box, linear-gradient(#386641, #6A994E, #A7C957) border-box;
+}
+
+.signin-button {
+  color: #BC4749;
+  border-radius: 3vh;
+  border: 0.3vh solid transparent;
+  background: linear-gradient(#BED784, #BED784) padding-box, linear-gradient(#386641, #6A994E, #A7C957) border-box;
+  align-self: center;
+  width: 100%;
+}
+
+.signin-link {
+  color: #386641;
+}/*# sourceMappingURL=LogIn.css.map */

@@ -25,4 +25,28 @@ public final class ClientService {
         Client client = this.clientRepository.findById(clientId).orElseThrow(() -> new RuntimeException("Client not found"));
         return this.productRepository.findAllById(client.getCart(), pageable);
     }
+
+    public boolean saveProductToCart(Long clientId, Long productId) {
+        Client client = this.clientRepository.findById(clientId).orElseThrow(() -> new RuntimeException("Client not found"));
+        if(!this.productRepository.findById(productId).isPresent()) {
+            throw new IllegalArgumentException("Product not found");
+        }
+        client.getCart().add(productId);
+        return (this.clientRepository.save(client) != null);
+    }
+
+    public boolean removeProductFromCart(Long clientId, Long productId) {
+        Client client = this.clientRepository.findById(clientId).orElseThrow(() -> new RuntimeException("Client not found"));
+        if(!this.productRepository.findById(productId).isPresent()) {
+            throw new IllegalArgumentException("Product not found");
+        }
+        client.getCart().remove(productId);
+        return (this.clientRepository.save(client) != null);
+    }
+    
+    public boolean emptyCart(Long clientId) {
+        Client client = this.clientRepository.findById(clientId).orElseThrow(() -> new RuntimeException("Client not found"));
+        client.getCart().clear();
+        return (this.clientRepository.save(client) != null);
+    }
 }

@@ -1,18 +1,16 @@
 @use 'Colors';
+@use 'Border';
 
 .product-card {
     position: relative;
-    border-radius: 3vh;
-    border: 0.3vh solid transparent;
-    background: 
-        linear-gradient(Colors.$darker-bg-color, Colors.$darker-bg-color) padding-box,
-        linear-gradient(Colors.$dark-green, Colors.$mid-green, Colors.$light-green) border-box;
+    @include Border.border(Colors.$darker-bg-color);
     overflow: hidden;
     background-color: Colors.$darker-bg-color;
     transition: transform 0.2s;
     height: 100%;
     display: flex;
     flex-direction: column;
+    box-shadow: 1px 1px 5px Colors.$dark-green;
 
     :hover {
         transform: translateY(-2%);

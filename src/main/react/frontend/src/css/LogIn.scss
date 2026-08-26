@@ -1,0 +1,45 @@
+@use 'Colors';
+@use 'Border';
+
+.login {
+    display: flex;
+    flex-direction: column;
+    @include Border.border(Colors.$darker-bg-color);
+    align-self: center;
+    justify-self: center;
+    padding: 3vh 1.5vw;
+}
+
+.login-form {
+    margin: 2vh 0;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5vh;
+
+    input {
+        padding: 1vh 1vw;
+        @include Border.border(Colors.$darker-bg-color);
+
+        &::placeholder {
+            color: Colors.$dark-green;
+            opacity: 0.75;
+        }
+    }
+}
+
+.login-button {
+    color: Colors.$bg-color;
+    margin-top: 1vh;
+    @include Border.border(Colors.$mid-green);
+}
+
+.signin-button {
+    color: Colors.$contrast;
+    @include Border.border(Colors.$lighter-green);
+    align-self: center;
+    width: 100%;
+}
+
+.signin-link {
+        color: Colors.$dark-green;
+}

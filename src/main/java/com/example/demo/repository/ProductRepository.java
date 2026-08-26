@@ -1,14 +1,16 @@
 package com.example.demo.repository;
 
 import java.util.List;
+import java.util.Optional;
 
 import org.springframework.data.domain.Page;
 import org.springframework.data.domain.Pageable;
-import org.springframework.stereotype.Repository;
+import org.springframework.data.jpa.repository.JpaRepository;
 
 import com.example.demo.model.Product;
 
-@Repository
-public interface ProductRepository {
-    Page<Product> findAllById(List<Long> productId, Pageable pageable);
+public interface ProductRepository extends JpaRepository<Product, Long> {
+    Page<Product> findAllById(List<Long> productIds, Pageable pageable);
+    Page<Product> findAll(Pageable pageable);
+    Optional<Product> findById(Long productId);
 }

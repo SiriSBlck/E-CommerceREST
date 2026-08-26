@@ -1,0 +1,44 @@
+.wrapper {
+  display: flex;
+  flex-direction: column;
+  border-radius: 3vh;
+  border: 0.3vh solid transparent;
+  background: linear-gradient(#F2E8CF, #F2E8CF) padding-box, linear-gradient(#386641, #6A994E, #A7C957) border-box;
+  align-self: center;
+  justify-self: center;
+  box-shadow: 4px 4px 5px #386641;
+}
+.wrapper form {
+  margin: 2vh 0;
+  display: flex;
+  flex-direction: column;
+  gap: 1.5vh;
+}
+.wrapper form .elem p {
+  margin-left: 0.5vw;
+}
+.wrapper form .elem input {
+  margin-top: 0.5vh;
+  padding: 1vh 1vw;
+  border-radius: 3vh;
+  border: 0.3vh solid transparent;
+  background: linear-gradient(#F2E8CF, #F2E8CF) padding-box, linear-gradient(#386641, #6A994E, #A7C957) border-box;
+}
+.wrapper form .elem input::-moz-placeholder {
+  color: #386641;
+  opacity: 0.75;
+}
+.wrapper form .elem input::placeholder {
+  color: #386641;
+  opacity: 0.75;
+}
+.wrapper form button {
+  border-radius: 3vh;
+  border: 0.3vh solid transparent;
+  background: linear-gradient(#6A994E, #6A994E) padding-box, linear-gradient(#386641, #6A994E, #A7C957) border-box;
+  margin-top: 1vh;
+  color: #FAF5EB;
+}
+.wrapper {
+  padding: 3vh 2vw;
+}/*# sourceMappingURL=SignIn.css.map */

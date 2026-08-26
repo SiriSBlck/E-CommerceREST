@@ -7,17 +7,19 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
+import jakarta.persistence.JoinColumn;
+import jakarta.persistence.ManyToOne;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 
 @Getter
 @AllArgsConstructor
 @Entity
+@Table
 public final class Review {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "review_id")
     private long id;
     
     private int score;
@@ -29,4 +31,8 @@ public final class Review {
     private String authorName;
     
     private Date createdAt;
+
+    @ManyToOne
+    @JoinColumn(name = "product_id")
+    private Product product;
 }

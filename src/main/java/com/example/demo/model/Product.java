@@ -9,7 +9,8 @@ import jakarta.persistence.Entity;
 import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
-
+import jakarta.persistence.OneToMany;
+import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
 import lombok.Setter;
@@ -18,6 +19,7 @@ import lombok.Setter;
 @Setter
 @AllArgsConstructor
 @Entity
+@Table
 public final class Product {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -32,9 +34,10 @@ public final class Product {
     
     private int stock;
     
-    private int score;
+    private int totalScore;
 
-    @ElementCollection
-    @CollectionTable(name = "product_reviews", joinColumns = @jakarta.persistence.JoinColumn(name = "product_id"))
-    private List<Review> reviews;
+    private int numberOfReviews;
+
+    // @OneToMany(mappedBy = "product")
+    // private List<Review> reviews;
 }
