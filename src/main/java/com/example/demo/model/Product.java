@@ -8,11 +8,13 @@ import jakarta.persistence.Id;
 import jakarta.persistence.Table;
 import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
 @AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table
 public final class Product {
@@ -27,6 +29,10 @@ public final class Product {
     
     private double price;
     
+    private double score;
+
+    private String image;
+
     private int stock;
     
     private int totalScore;

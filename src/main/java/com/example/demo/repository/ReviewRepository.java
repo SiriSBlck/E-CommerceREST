@@ -8,5 +8,5 @@ import com.example.demo.model.Review;
 
 public interface ReviewRepository extends JpaRepository<Review, Long>{
     Page<Review> findByProductId(Long productId, Pageable pageable);
-    Review save(Review review, Pageable pageable);
+    Review save(Review review);
 }

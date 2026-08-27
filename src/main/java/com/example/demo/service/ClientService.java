@@ -37,7 +37,7 @@ public final class ClientService {
 
     public Page<Product> getCartProducts(Long clientId, Pageable pageable) {
         Client client = this.clientRepository.findById(clientId).orElseThrow(() -> new RuntimeException("Client not found"));
-        return this.productRepository.findAllById(client.getCart(), pageable);
+        return this.productRepository.findAllByIdIn(client.getCart(), pageable);
     }
 
     public boolean saveProductToCart(Long clientId, Long productId) {

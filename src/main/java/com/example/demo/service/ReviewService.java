@@ -14,8 +14,8 @@ public class ReviewService {
 
     private ReviewRepository reviewRepository;
 
-    public boolean addReview(Review review, Pageable pageable) {
-        return (this.reviewRepository.save(review, pageable) != null);
+    public boolean addReview(Review review) {
+        return (this.reviewRepository.save(review) != null);
     }
 
     public void deleteReview(Long reviewId) {

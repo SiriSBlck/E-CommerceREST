@@ -9,7 +9,10 @@ import org.springframework.data.web.PageableDefault;
 import org.springframework.http.HttpStatusCode;
 import org.springframework.http.ResponseEntity;
 import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.DeleteMapping;
 import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.PutMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
 
@@ -31,35 +34,35 @@ public final class ClientController {
         this.clientService = clientService;
     }
 
-    @GetMapping(value="/client/{client-id}")
-    public ResponseEntity<Client> requestMethodName(@RequestParam Long clientId) {
+    @GetMapping(value="/client/{clientId}")
+    public ResponseEntity<Client> requestMethodName(@PathVariable Long clientId) {
         return ResponseEntity.ok(this.clientService.getClient(clientId));
     }
 
-    @PutMapping(value="/client/{client-id}")
+    @PutMapping(value="/client/{clientId}")
     public ResponseEntity<Client> putClient(@RequestParam Client client) {        
         return ResponseEntity.ok(this.clientService.editClient(client));
     }
     
-    @GetMapping(value="/client/cart")
-    public Page<Product> requestClientCart(@RequestParam Long clientId, @PageableDefault(size=20, sort="name") Pageable pageable) {
+    @GetMapping(value="/client/{clientId}/cart")
+    public Page<Product> getCart(@PathVariable Long clientId, @PageableDefault(size=20, sort="name") Pageable pageable) {
         return this.clientService.getCartProducts(clientId, pageable);
     } 
 
-    @PutMapping(value="/client/cart")
-    public ResponseEntity<HttpRequest> addProductToCart(@RequestParam Long clientId, @RequestParam Long productId) {
+    @PostMapping(value="/client/{clientId}/cart/{productId}")
+    public ResponseEntity<HttpRequest> addProductToCart(@PathVariable Long clientId, @PathVariable Long productId) {
         return (this.clientService.saveProductToCart(clientId, productId) ? 
             new ResponseEntity<>(HttpStatusCode.valueOf(200)) : new ResponseEntity<>(HttpStatusCode.valueOf(412)));
     }
     
-    @PutMapping(value="/client/cart")
-    public ResponseEntity<HttpRequest> removeProductFromCart(@RequestParam Long clientId, @RequestParam Long productId) {
+    @DeleteMapping(value="/client/{clientId}/cart/{productId}")
+    public ResponseEntity<HttpRequest> deleteProductFromCart(@PathVariable Long clientId, @PathVariable Long productId) {
         return (this.clientService.removeProductFromCart(clientId, productId) ? 
             new ResponseEntity<>(HttpStatusCode.valueOf(200)) : new ResponseEntity<>(HttpStatusCode.valueOf(412)));
     }
 
-    @PutMapping(value="/client/cart")
-    public ResponseEntity<HttpRequest> emptyCart(@RequestParam Long clientId) {
+    @DeleteMapping(value="/client/{clientId}/cart")
+    public ResponseEntity<HttpRequest> emptyCart(@PathVariable Long clientId) {
         return (this.clientService.emptyCart(clientId) ? 
             new ResponseEntity<>(HttpStatusCode.valueOf(200)) : new ResponseEntity<>(HttpStatusCode.valueOf(500)));
     }
