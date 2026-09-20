@@ -8,4 +8,5 @@ import com.example.demo.model.Supplier;
 
 public interface SupplierRepository extends JpaRepository<Supplier, Long>{
     Optional<Supplier> findById(Long supplierId);
+    Optional<Supplier> findByName(String name);
 }

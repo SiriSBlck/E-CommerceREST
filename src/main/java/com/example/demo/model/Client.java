@@ -1,39 +1,39 @@
 package com.example.demo.model;
 
-import java.util.List;
+import java.sql.Date;
+import java.util.HashSet;
+
+import org.hibernate.annotations.UpdateTimestamp;
 
 import jakarta.persistence.CollectionTable;
-import jakarta.persistence.Column;
 import jakarta.persistence.ElementCollection;
 import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
 import jakarta.persistence.Table;
-import lombok.AllArgsConstructor;
 import lombok.Getter;
+import lombok.NoArgsConstructor;
 import lombok.Setter;
 
 @Getter
 @Setter
-@AllArgsConstructor
+@NoArgsConstructor
 @Entity
 @Table
-public final class Client {
-    @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "client_id")
-    private Long id;
-
-    private String name;
-
-    private String email;
+public final class Client extends User{
+    
 
     @ElementCollection
     @CollectionTable(name = "client_history", joinColumns = @jakarta.persistence.JoinColumn(name = "client_id"))
-    private List<Product> history;
+    private HashSet<Long> history;
     
     @ElementCollection
     @CollectionTable(name = "client_cart", joinColumns = @jakarta.persistence.JoinColumn(name = "client_id"))
-    private List<Long> cart;
+    private HashSet<Long> cart;
+
+    public Client(String name, String email, String password, Role role, Date createdAt, String address, 
+                        Date updatedAt, HashSet<Long> history, HashSet<Long> cart) {
+                            
+        super(name, email, password, role, createdAt, address, updatedAt);
+        this.history = history;
+        this.cart = cart;
+    }
 }
