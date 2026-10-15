@@ -1,6 +1,21 @@
 @use 'Form';
+@use 'Colors';
+@use 'Border';
 
 .wrapper {
     @include Form.wrapper;
     padding: 3vh 2vw;
+
+    .signin-button-client {
+        @include Border.border(Colors.$mid-green);
+    }
+
+    .signin-button-supplier {
+        @include Border.border(Colors.$mid-darker-green);
+    }
+
+    .login-button {
+        @include Border.border(Colors.$lighter-green)
+    }
+    
 }

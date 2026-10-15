@@ -24,7 +24,7 @@ import com.example.demo.model.Supplier;
 
 @AllArgsConstructor
 @Controller
-public final class SupplierController {
+public class SupplierController {
 
     private final SupplierService supplierService;
     

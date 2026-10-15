@@ -1,5 +1,9 @@
 const BASE_URL = "http://localhost:8080";
 
+const handleLogin = async () => {
+    const response = await axios.post('login', {username, password});
+}
+
 export const getProducts = async () => {
     const response = await fetch(`${BASE_URL}/product`);
     if(!response.ok) throw new Error("Failed to obtain products");

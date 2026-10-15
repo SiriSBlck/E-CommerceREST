@@ -13,8 +13,4 @@ VALUES
 
     (3, 'Apple',
      'https://www.apple.com/euro/iphone/home/d/screens_alt/images/meta/iphone__bh930eyjnj0i_og.png',
-     2.5, 1, 999.99, 12, 25, 10),
-
-    (5, 'Samsung', '', 3.4, 1, 549.99, 20, 34, 10),
-    (6, 'Apple', '', 2.5, 1, 849.99, 8, 25, 10),
-    (7, 'Apple', '', 2.5, 1, 1199.99, 5, 25, 10);
+     2.5, 1, 999.99, 12, 25, 10)

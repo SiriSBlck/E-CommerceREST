@@ -18,15 +18,15 @@ function App() {
         <NavBar />
       </div>
       <main className="main-content">
-        <Routes>
+        <Routes >
           <Route path="/" element={<Home />}/>
           <Route path="/sign-in" element={<SignIn />}/>
           <Route path="/log-in" element={<LogIn />}/>
-          <Route path="/{client-id}/cart" element={<Cart />}/>
-          <Route path="/{user-id}" element={<PersonalPage />}/>
-          <Route path="/{supplier-id}/catalog" element={<SupplierCatalog />}/>
+          <Route path="/client/cart" element={<Cart />}/>
+          <Route path="/supplier/catalog" element={<SupplierCatalog />}/>
+          <Route path="/user" element={<PersonalPage />}/>
           <Route path="/product" element={<ProductSelection />}/>
-          <Route path="/product/{product-id}" element={<ProductPage />}/>
+          <Route path="/product/:product-id" element={<ProductPage />}/>
         </Routes>
       </main>
     </>

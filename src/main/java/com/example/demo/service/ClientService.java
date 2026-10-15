@@ -15,7 +15,7 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @Service
-public final class ClientService {
+public class ClientService {
     private final ClientRepository clientRepository;
     private final ProductRepository productRepository;
 

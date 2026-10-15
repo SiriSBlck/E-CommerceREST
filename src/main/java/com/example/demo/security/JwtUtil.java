@@ -5,6 +5,7 @@ import java.util.Date;
 import java.util.Map;
 import java.util.Objects;
 import java.util.UUID;
+import java.util.function.Function;
 
 import javax.crypto.SecretKey;
 
@@ -75,7 +76,25 @@ public final class JwtUtil {
         return this.getPlayload(token).getSubject();
     }
 
+    public <T> T getClaim(String token, Function<Claims, T> claimsResolver) {
+        final Claims claims = this.getPlayload(token);
+        return claimsResolver.apply(claims);
+    }
+
     public String getRole(String token) {
         return this.getPlayload(token).get("role", String.class);
+    }
+
+    public Date extractExpirationDate(String token) {
+        return this.getClaim(token, claims -> claims.getExpiration());
+    }
+
+    public boolean isTokenExpired(String token) {
+        return this.extractExpirationDate(token).before(new Date());
+    }
+    
+    public boolean isTokenValid(String token) {
+        final String username = this.getUsername(token);
+        return (username.equals(this.getUsername(token)) && !isTokenExpired(token));
     }
 }

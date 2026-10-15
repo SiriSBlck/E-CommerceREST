@@ -8,9 +8,9 @@ function NavBar() {
             <Link to='/{client-id}/cart' className="nav-link">Cart</Link>
             <Link to='/{supplier-id}/catalog' className="nav-link"></Link>
             <Link to='/product' className="nav-link">Products</Link>
+            <Link to='/log-in' className="nav-link">Log In</Link>
             <Link to='/sign-in' className="nav-link">Sign In</Link>
             <Link to='/{user-id}' className="nav-link">My Page</Link>
-            <Link to='/log-in' className="nav-link">Log In</Link>
         </div>
     </nav>
 }

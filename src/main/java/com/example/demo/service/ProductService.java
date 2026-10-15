@@ -13,7 +13,7 @@ import lombok.AllArgsConstructor;
 
 @AllArgsConstructor
 @Service
-public final class ProductService {
+public class ProductService {
 
     private final ProductRepository productRepository;
     private final ReviewRepository reviewRepository;

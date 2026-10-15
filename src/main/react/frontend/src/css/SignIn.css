@@ -16,6 +16,7 @@
 }
 .wrapper form .elem p {
   margin-left: 0.5vw;
+  font-weight: bold;
 }
 .wrapper form .elem input {
   margin-top: 0.5vh;
@@ -33,12 +34,24 @@
   opacity: 0.75;
 }
 .wrapper form button {
-  border-radius: 3vh;
-  border: 0.3vh solid transparent;
-  background: linear-gradient(#6A994E, #6A994E) padding-box, linear-gradient(#386641, #6A994E, #A7C957) border-box;
   margin-top: 1vh;
   color: #FAF5EB;
 }
 .wrapper {
   padding: 3vh 2vw;
+}
+.wrapper .signin-button-client {
+  border-radius: 3vh;
+  border: 0.3vh solid transparent;
+  background: linear-gradient(#6A994E, #6A994E) padding-box, linear-gradient(#386641, #6A994E, #A7C957) border-box;
+}
+.wrapper .signin-button-supplier {
+  border-radius: 3vh;
+  border: 0.3vh solid transparent;
+  background: linear-gradient(#557a3e, #557a3e) padding-box, linear-gradient(#386641, #6A994E, #A7C957) border-box;
+}
+.wrapper .login-button {
+  border-radius: 3vh;
+  border: 0.3vh solid transparent;
+  background: linear-gradient(#BED784, #BED784) padding-box, linear-gradient(#386641, #6A994E, #A7C957) border-box;
 }/*# sourceMappingURL=SignIn.css.map */
