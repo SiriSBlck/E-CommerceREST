@@ -1,4 +1,4 @@
-package com.example.demo.security;
+package com.example.demo.persistence;
 
 import org.hibernate.engine.spi.SharedSessionContractImplementor;
 import org.hibernate.id.IdentifierGenerator;

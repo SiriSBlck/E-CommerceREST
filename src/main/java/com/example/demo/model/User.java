@@ -5,9 +5,9 @@ import java.sql.Date;
 import org.hibernate.annotations.CreationTimestamp;
 import org.hibernate.annotations.UpdateTimestamp;
 
+import com.example.demo.persistence.CustomId;
+
 import jakarta.persistence.Column;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.MappedSuperclass;
 import lombok.Getter;
@@ -19,7 +19,7 @@ import lombok.NonNull;
 @Getter
 public abstract class User {
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @CustomId()
     @Column(name = "user_id")
     private Long id;
 
